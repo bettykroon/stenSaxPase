@@ -4,14 +4,52 @@
 } 
 
 body {
-    background-image: linear-gradient(blue, pink);
+    background: rgb(210,0,162);
+    background: linear-gradient(121deg, rgba(210,0,162,1) 0%, rgba(241,255,135,1) 100%);
     height: 100vh;
+}
+
+#gameplan {
+    border: 1px solid #ccc;
+    width: 400px;
+    height: 80vh;
+    margin: auto;
+    background-color: white;
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 4px;
+}
+
+#header {
+    font-size: 3rem;
+    padding: 20px;
+}
+
+#container {
+    padding: 20px;
+    text-align: center;
 }
 
 #rock, #paper, #sissor {
     font-size: 3rem;
     display: inline;
     text-align: center;
+    padding: 20px;
+}
+
+#rock:hover, #paper:hover, #sissor:hover {
+    font-size: 4rem;
+}
+
+#result {
+    text-align: center;
+}
+
+#result h1{
+    padding: 10px;
+    background-color: #d200a2;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 
 #myChoise, #yourChoise {
@@ -19,37 +57,47 @@ body {
     display: inline;
 }
 
-#gameplan {
-    border: 1px solid black;
-    width: 400px;
-    height: 80vh;
-    margin: auto;
-    background-color: white;
-    margin-top: 60px;
+#scoreContainer{
+    text-align: center;
     padding: 20px;
 }
 
-h1 {
-    text-align: center;
+#myScore, #yourScore {
+    border: 1px solid black;
+    display: inline;
+    font-size: 3rem;
+    margin: 20px;
+    padding: 10px;
+}
+
+#myScore {
+    background-color: #d200a2;
+}
+
+#yourScore {
+    background-color: #f1ff87;
 }
 
 #sameChoise {
     text-align: center;
     font-size: 2rem;
+    margin: auto;
 }
 
-#result {
-    text-align: center;
+#playAgain {
+    display: block;
+    width: 100%;
+    background-color: #d200a2;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
-#myScore, #yourScore {
-    text-align: center;
-}
-
-#container {
-    text-align: center;
-}
-
-#rock:hover, #paper:hover, #sissor:hover {
-    font-size: 4rem;
+#playAgain:hover {
+    background-color: #f1ff87;
+    color: black;
+    border: 1px solid #ccc;
 }

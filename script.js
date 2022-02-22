@@ -4,12 +4,13 @@ let paper = document.getElementById("paper");
 let myChoise = document.getElementById("myChoise");
 let yourChoise = document.getElementById("yourChoise");
 let sameChoise = document.getElementById("sameChoise");
-let result = document.getElementById("result");
+let container = document.getElementById("container");
+let myScore = document.getElementById("myScore");
+let yourScore = document.getElementById("yourScore");
+let scoreContainer = document.getElementById("scoreContainer");
 
 let userScore = 0;
 let computerScore = 0;
-
-let score = document.getElementById("score");
 
 function getComputerChoise(){
     let choises = [ '👊', '🖐', '✌️'];
@@ -25,12 +26,36 @@ function userChoise(choise){
 
 function win(user, computer){
     userScore++;
-    score.innerHTML = userScore + " : " + computerScore;
+    myScore.innerHTML = userScore;
+    yourScore.innerHTML = computerScore;
+    if(userScore == 10){
+        sameChoise.innerHTML = "DU VANN!!";
+        container.innerHTML = "";
+        let playAgain = document.createElement("button");
+        playAgain.id = "playAgain";
+        playAgain.innerText = "Spela igen?";
+        sameChoise.append(playAgain);
+        playAgain.addEventListener("click", ()=> {
+            location.reload();
+        })
+    }
 }
 
 function lose(user, computer){
     computerScore++;
-    score.innerHTML = userScore + " : " + computerScore;
+    myScore.innerHTML = userScore;
+    yourScore.innerHTML = computerScore;
+    if(computerScore == 10){
+        sameChoise.innerHTML = "DU FÖRLORADE!!";
+        container.innerHTML = "";
+        let playAgain = document.createElement("button");
+        playAgain.id = "playAgain";
+        playAgain.innerText = "Spela igen?";
+        sameChoise.append(playAgain);
+        playAgain.addEventListener("click", ()=> {
+            location.reload();
+        })
+    }
 }
 
 function same(user, computer){
@@ -60,26 +85,30 @@ function game(myChoise){
 }
 
 function main(){
+    scoreContainer.style.visibility = "hidden";
     rock.addEventListener('click', () => {
+        scoreContainer.style.visibility = "visible";
         sameChoise.innerHTML = "";
         myChoise.innerHTML = "";
-        myChoise.innerHTML = rock.innerHTML + ":";
+        myChoise.innerHTML = rock.innerHTML + " :";
         game('👊');
     });
 
     paper.addEventListener('click', () => {
+        scoreContainer.style.visibility = "visible";
         sameChoise.innerHTML = "";
         myChoise.innerHTML = "";
-        myChoise.innerHTML = paper.innerHTML  + ":";
+        myChoise.innerHTML = paper.innerHTML  + " :";
         game('🖐');
     });
 
     sissor.addEventListener('click', () => {
+        scoreContainer.style.visibility = "visible";
         sameChoise.innerHTML = "";
         myChoise.innerHTML = "";
-        myChoise.innerHTML = sissor.innerHTML + ":";
+        myChoise.innerHTML = sissor.innerHTML + " :";
         game('✌️');
-    })
+    });
 }
 
 main();
